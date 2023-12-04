@@ -16,6 +16,11 @@ NEWSPIDER_MODULE = "yelpcrawler.spiders"
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = "yelpcrawler (+http://www.yourdomain.com)"
 
+SCRAPEOPS_API_KEY = "443eab24-0e3a-4a9f-be03-65245906b1e8"
+SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT = "https://headers.scrapeops.io/v1/user-agents"
+SCRAPEOPS_RESULTS_NUMBER = 50
+SCRAPEOPS_FAKE_USER_AGENT_ENABLED = True
+
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
@@ -50,9 +55,9 @@ ROBOTSTXT_OBEY = False
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-# DOWNLOADER_MIDDLEWARES = {
-#    "yelpcrawler.middlewares.YelpcrawlerDownloaderMiddleware": 543,
-# }
+DOWNLOADER_MIDDLEWARES = {
+    "yelpcrawler.middlewares.FakeUserAgentMiddleware": 543,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
